@@ -28,14 +28,8 @@ pnpm publish --access public
 Here is an example of how to use Zen Utils in your project:
 
 ```javascript
-const { capitalize, flattenArray } = require('zen-utils');
+import { brazilStates } = from 'zen-digital-utils'
 
-// Example usage
-const str = capitalize('hello world');
-const flatArray = flattenArray([1, [2, 3], [4, [5]]]);
-
-console.log(str); // Output: Hello world
-console.log(flatArray); // Output: [1, 2, 3, 4, 5]
 ```
 
 ## Contributing
