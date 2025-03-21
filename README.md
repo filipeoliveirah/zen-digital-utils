@@ -15,6 +15,12 @@ To install Zen Utils, use npm:
 
 ```bash
 npm install zen-utils
+
+```
+
+## Public changes on npm
+```bash
+pnpm publish --access public
 ```
 
 ## Usage
