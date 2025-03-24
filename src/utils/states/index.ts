@@ -1,4 +1,6 @@
-export const brazilianStates = [
+import { BrazilianState } from "./types";
+
+export const brazilianStates: BrazilianState[] = [
   { value: 'AC', label: 'Acre' },
   { value: 'AL', label: 'Alagoas' },
   { value: 'AP', label: 'Amapá' },
