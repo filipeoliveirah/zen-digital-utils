@@ -1,4 +1,4 @@
-export const brazilStates = [
+export const brazilianStates = [
   { value: 'AC', label: 'Acre' },
   { value: 'AL', label: 'Alagoas' },
   { value: 'AP', label: 'Amapá' },
