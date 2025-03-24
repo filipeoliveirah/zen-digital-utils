@@ -20,7 +20,7 @@ npm install zen-utils
 
 ## Public changes on npm
 ```bash
-pnpm publish --access public
+npm publish --access public
 ```
 
 ## Usage
