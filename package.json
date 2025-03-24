@@ -1,6 +1,6 @@
 {
   "name": "zen-digital-utils",
-  "version": "1.0.4",
+  "version": "1.0.41",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
