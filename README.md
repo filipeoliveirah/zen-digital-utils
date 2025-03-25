@@ -58,7 +58,7 @@ function StateSelector() {
 ```
 
 
-## Array Utilities
+## Format text Utilities
 ## Methods to handle array transformations and operations.
 
 ```javascript
