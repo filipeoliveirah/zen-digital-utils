@@ -59,7 +59,7 @@ function StateSelector() {
 
 
 ## Format text Utilities
-## Methods to handle array transformations and operations.
+## Utilities to format and manipulate text.
 
 ```javascript
 import { capitalize, capitalizeText, slugify, truncate, formatTextOnly } from 'zen-digital-utils'
