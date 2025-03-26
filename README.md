@@ -127,7 +127,7 @@ omit(user, ['password'])
 ## Array Utilities
 
 ```javascript
-import { chunk, unique, sortBy, groupBy } from 'zen-digital-utils'
+import { chunk, unique, sortBy, groupBy, flatten, intersection, difference, shuffle, partition } from 'zen-digital-utils'
 
 // Split array into chunks
 chunk([1, 2, 3, 4, 5], 2) // [[1, 2], [3, 4], [5]]
@@ -150,6 +150,22 @@ const people = [
 ];
 groupBy(people, 'age') 
 // { '25': [{ age: 25, name: 'Bob' }], '30': [{ age: 30, name: 'Alice' }, { age: 30, name: 'Charlie' }] }
+
+// Flatten a nested array structure
+flatten([[1, 2], [3, 4]]) // [1, 2, 3, 4]
+
+// Find common elements across arrays
+intersection([1, 2, 3], [2, 3, 4], [2, 3, 5]) // [2, 3]
+
+// Get elements from first array not in second array
+difference([1, 2, 3, 4], [2, 4]) // [1, 3]
+
+// Randomly shuffle array elements
+shuffle([1, 2, 3, 4, 5]) // [3, 1, 5, 2, 4] (random order)
+
+// Divide array into two groups based on a condition
+const numbers = [1, 2, 3, 4, 5];
+partition(numbers, num => num % 2 === 0) // [[2, 4], [1, 3, 5]]
 ```
 
 

@@ -80,3 +80,83 @@ export function groupBy<T extends Record<string, any>, K extends keyof T>(
         return result;
     }, {} as Record<string, T[]>);
 }
+
+/**
+ * Flattens a nested array structure by one level
+ * @param array - The array to flatten
+ * @returns Flattened array
+ */
+export function flatten<T>(array: Array<T | T[]>): T[] {
+    if (!Array.isArray(array)) return [];
+
+    return array.reduce((result: T[], item) => {
+        if (Array.isArray(item)) {
+            result.push(...item);
+        } else {
+            result.push(item);
+        }
+        return result;
+    }, []);
+}
+
+/**
+ * Returns an array containing elements present in all provided arrays
+ * @param arrays - Arrays to find common elements from
+ * @returns Array of common elements
+ */
+export function intersection<T>(...arrays: T[][]): T[] {
+    if (!arrays.length || arrays.some(arr => !Array.isArray(arr))) return [];
+
+    const [first, ...rest] = arrays;
+    return first.filter(item =>
+        rest.every(arr => arr.includes(item))
+    );
+}
+
+/**
+ * Returns elements from the first array that are not in the second array
+ * @param array - The source array
+ * @param excludeArray - The array of values to exclude
+ * @returns Array with excluded values removed
+ */
+export function difference<T>(array: T[], excludeArray: T[]): T[] {
+    if (!Array.isArray(array)) return [];
+    if (!Array.isArray(excludeArray)) return [...array];
+
+    return array.filter(item => !excludeArray.includes(item));
+}
+
+/**
+ * Randomly shuffles elements in an array (Fisher-Yates algorithm)
+ * @param array - The array to shuffle
+ * @returns New shuffled array
+ */
+export function shuffle<T>(array: T[]): T[] {
+    if (!Array.isArray(array)) return [];
+
+    const result = [...array];
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
+
+/**
+ * Divides an array into two groups based on a predicate function
+ * @param array - The array to divide
+ * @param predicate - Function that returns true or false for each element
+ * @returns Array containing two subarrays: matches and non-matches
+ */
+export function partition<T>(array: T[], predicate: (item: T) => boolean): [T[], T[]] {
+    if (!Array.isArray(array)) return [[], []];
+
+    return array.reduce(
+        (result, item) => {
+            result[predicate(item) ? 0 : 1].push(item);
+            return result;
+        },
+        [[], []] as [T[], T[]]
+    );
+}
