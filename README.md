@@ -168,6 +168,42 @@ const numbers = [1, 2, 3, 4, 5];
 partition(numbers, num => num % 2 === 0) // [[2, 4], [1, 3, 5]]
 ```
 
+## Currency Formatters
+## Utilities to format and handle currency values.
+
+```javascript
+import { 
+    formatCurrency, 
+    formatWithCurrencySymbol, 
+    formatInternationalCurrency,
+    formatCurrencyWithoutSymbol,
+    formatAccountingCurrency,
+    toCents 
+} from 'zen-digital-utils'
+
+// Basic Brazilian currency formatting
+formatCurrency(1234.56) // 'R$ 1.234,56'
+
+// Custom currency symbol
+formatWithCurrencySymbol(1234.56, '$') // '$ 1.234,56'
+formatWithCurrencySymbol(1234.56, '€') // '€ 1.234,56'
+
+// International currency formatting
+formatInternationalCurrency(1234.56, 'en-US', 'USD') // '$1,234.56'
+formatInternationalCurrency(1234.56, 'de-DE', 'EUR') // '1.234,56 €'
+formatInternationalCurrency(1234.56, 'ja-JP', 'JPY') // '￥1,235'
+
+// Format without currency symbol
+formatCurrencyWithoutSymbol(1234.56) // '1.234,56'
+
+// Accounting format (negative values in parentheses)
+formatAccountingCurrency(1234.56)  // 'R$ 1.234,56'
+formatAccountingCurrency(-1234.56) // '(R$ 1.234,56)'
+
+// Convert to cents
+toCents('R$ 1.234,56') // 123456
+toCents(1234.56)       // 123456
+```
 
 ## Contributing
 
