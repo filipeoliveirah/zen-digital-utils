@@ -4,7 +4,7 @@ export function formatPhoneNumberForWhatsApp(value: string): string {
     return cleanValue
 }
 
-export function formatNumber(value: string) {
+export function formatNumber(value: string): string {
     value = value.replace(/\D/g, '')
     return value
 }
