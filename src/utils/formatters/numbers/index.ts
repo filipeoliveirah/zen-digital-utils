@@ -68,11 +68,16 @@ export function formatBranchNumberWithDefault(value: string): string {
     return value
 }
 
-export function formatCpf(value: string) {
-    value = value.replace(/\D/g, '')
-    value = value.slice(0, 11)
+export function formatCpf(value: string): string {
+    // Remove non-digit characters and limit to 11 digits
+    value = value.replace(/\D/g, '').slice(0, 11)
+
+    // Insert the first dot after the initial three digits
     value = value.replace(/(\d{3})(\d)/, '$1.$2')
-    value = value.replace(/(\d{3})(\d)/, '$1.$2')
-    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+    // Insert the second dot after the next three digits
+    value = value.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+    // Add the dash before the last two digits
+    value = value.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d{1,2})/, '$1.$2.$3-$4')
+
     return value
-  }
+}
